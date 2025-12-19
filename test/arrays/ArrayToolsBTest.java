@@ -8,6 +8,16 @@ class ArrayToolsBTest {
     //crear test
     @Test
     void getSubstractOrSum() {
+        assertNull(ArrayToolsB.getSubstractOrSum(null, '+'));
+        assertNull(ArrayToolsB.getSubstractOrSum(new int[] {1,2}, '*'));
+        assertEquals(0, ArrayToolsB.getSubstractOrSum(new int[]{}, '+'));
+        assertEquals(0, ArrayToolsB.getSubstractOrSum(new int[]{}, '-'));
+        assertEquals(6, ArrayToolsB.getSubstractOrSum(new int[]{1,2,3}, '+'));
+        assertEquals(-6, ArrayToolsB.getSubstractOrSum(new int[]{1,2,3}, '-'));
+        assertEquals(-3, ArrayToolsB.getSubstractOrSum(new int[]{-1,-2}, '+'));
+        assertEquals(3, ArrayToolsB.getSubstractOrSum(new int[]{-1,-2}, '-'));
+        assertEquals(-3, ArrayToolsB.getSubstractOrSum(new int[]{3}, '-'));
+        assertEquals(3, ArrayToolsB.getSubstractOrSum(new int[]{3}, '+'));
     }
     //crear metodo countNumberOfZeros de acuerdo a los test
     @Test
@@ -21,6 +31,13 @@ class ArrayToolsBTest {
    //crear test
     @Test
     void isSeemItems() {
+        assertNull(ArrayToolsB.isSeemItems(null));
+        assertFalse(ArrayToolsB.isSeemItems(new int[]{}));
+        assertTrue(ArrayToolsB.isSeemItems(new int[]{1}));
+        assertFalse(ArrayToolsB.isSeemItems(new int[]{1,2}));
+        assertTrue(ArrayToolsB.isSeemItems(new int[]{1,1}));
+        assertFalse(ArrayToolsB.isSeemItems(new int[]{1,1,2}));
+        assertTrue(ArrayToolsB.isSeemItems(new int[]{1,1,1}));
     }
     //crear metodo changeOrderArray de acuerdo a los test
     @Test

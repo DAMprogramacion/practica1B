@@ -1,10 +1,34 @@
 package arrays;
-//crear documentación de la clase
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * Clase que contiene varios metodos que actuán sobre arrrays de varios tipos
+ * @author manuel
+ * @version 1.0
+ */
 public class ArrayToolsB {
 //crear el constructor privado
 
-    //crear documentación y test
-    //metodo que suma o resta los valores de un array, dependiendo de la operación
+    private ArrayToolsB() {
+    }
+
+    /**
+     * <p>Metodo estático que opera sobre un array de enteros dada una operación de suma o resta</p>
+     * <ol>
+     *     <li>Si recibe un null, devuelve un null</li>
+     *     <li>Si recibe como operador algo distinto a los caracters + ó -, devuelve un null</li>
+     *     <li>Si recibe un array vacío y los caracters + ó -, devuelve cero</li>
+     *     <li>Si recibe un array  y los caracters + ó -, devuelve o la suma de los valores o la resta</li>
+     *     <li>Ejemplo [1,2] y + devuelve 3</li>
+     *     <li>Ejemplo [1,2] y - devuelve -3</li>
+     * </ol>
+     * @param array de números enteros, puede ser un array vacío
+     * @param operation que puede ser + ó -
+     * @return null, cero o el valor de la operación correspondiente
+     */
     public static Integer getSubstractOrSum (int[] array, char operation ) {
         if (array == null || !(operation == '+' || operation == '-'))
             return null;
@@ -22,12 +46,26 @@ public class ArrayToolsB {
         return result;
 
     }
-    //crear metodo que cuenta el número de ceros de un array de enteros
+
+    /**
+     * xxxxxx
+     * @param array
+     * @return
+     */
     public static Integer countNumberOfZeros (int[] array) {
-        return null; //cambiar
+        if (array == null) return null;
+        int counter0 = 0;
+        for (int number : array) {
+            if (number == 0) counter0++;
+        }
+        return counter0; //cambiar
     }
-    //metodo que nos dice si todos los elementos del array son iguales o no.
-    //crear test y documentación
+
+    /**
+     * xxxxxxxxxxxxxxxxx
+     * @param array
+     * @return
+     */
     public static Boolean isSeemItems(int[] array) {
         if (array == null) return null;
         if (array.length == 0) return false;
@@ -39,11 +77,30 @@ public class ArrayToolsB {
         }
         return true;
     }
-    //crear metodo que recibe un array de cadenas y devuelve  un array
-    //donde las posiciones están invertidas, la primera cadena es la última
-    //la última es la primera y así sucesivemente
+
+    /**
+     * xxxxxxxxxxxxxxxxxxxxxxxxxxx
+     * @param array
+     * @return
+     */
     public static String[] changeOrderArray(String[] array) {
-        return null; //cambiar ésto
+        if (array == null || array.length == 0 || array.length == 1) return array;
+       /* List<String> list = Arrays.asList(array);
+        Collections.reverse(list);
+        int size = array.length;
+        String[] arrayRerverse = new String[size];
+        for (int i = 0; i < size; i++) {
+            arrayRerverse[i] = list.get(i);
+        }*/ //metodo poco eficiente, se debería cambiar con un único bucle for
+        int size = array.length;
+        String[] arrayRerverse = new String[size];
+        for (int i = 0; i < size ; i++) {
+            arrayRerverse[i] = array[size -1 -i];
+        }
+        return arrayRerverse;
+
     }
+
+
 
 }
